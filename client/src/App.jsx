@@ -43,7 +43,6 @@ const App = () => {
 
     try {
       if (editando) {
-        // 🔄 Editar usuario existente
         const res = await fetch(`${API_URL}/${idEditando}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -57,7 +56,6 @@ const App = () => {
           alert('Error al actualizar usuario ❌')
         }
       } else {
-        // 🆕 Crear nuevo usuario
         const res = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -88,7 +86,6 @@ const App = () => {
     }
   }
 
-  // Cargar datos en el formulario para editar
   const handleEdit = (usuario) => {
     setFormData({
       nombreCompleto: usuario.nombreCompleto,
@@ -99,7 +96,6 @@ const App = () => {
     setIdEditando(usuario.id)
   }
 
-  // Cancelar edición
   const handleCancelEdit = () => {
     setFormData({ nombreCompleto: '', correoElectronico: '', numeroTelefono: '' })
     setEditando(false)
